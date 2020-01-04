@@ -1,0 +1,26 @@
+#plaintextInput {
+  height: 300px;
+}
+
+#results {
+  margin-top: 50px;
+  visibility: hidden;
+}
+
+.tabs {
+  padding-left: 0;
+}
+
+.tabs > li {
+  float: left;
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.tabs > li a {
+  padding: 5px 10px;
+}
+
+.code {
+  height: 500px;
+}
