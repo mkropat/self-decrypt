@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>self decrypt</title>
+  <link rel="stylesheet" href="assets/marx.min.css" />
+  <link rel="stylesheet" href="index.css" />
+  <script defer src="lib/sjcl.js"></script>
+<link href="main.744c924d658d533fbda6.css" rel="stylesheet"><script type="text/javascript" src="main.4d8a3e3149baacba0cb3.js" defer></script></head>
+<body>
+  <main>
+    <h1>self decrypting messages</h1>
+    <form>
+      <p>
+        <label style="width: 100%">
+          Message
+          <textarea autocomplete="off" id="plaintextInput"></textarea>
+        </label>
+      </p>
+      <p>
+        <label style="width: 100%">
+          Password
+          <input id="passwordInput" required />
+        </label>
+      </p>
+      <p><button id="encryptButton" type="submit">Encrypt</button></p>
+    </form>
+
+    <div id="results">
+      <ul class="tabs">
+        <li><a href="#opensslResults">OpenSSL CLI</a></li>
+        <li><a href="#powershellResults">PowerShell</a></li>
+      </ul>
+
+      <section id="opensslResults" style="width: 100%">
+        <textarea class="code" readonly></textarea>
+      </section>
+
+      <section id="powershellResults" style="width: 100%">
+        <textarea class="code" readonly></textarea>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
