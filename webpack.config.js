@@ -1,7 +1,7 @@
-const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
 module.exports = {
   mode: 'development',
@@ -18,21 +18,17 @@ module.exports = {
       patterns: [
         { from: 'lib', to: 'lib' },
         { from: 'node_modules/marx-css/css', to: 'assets' },
-      ]
+      ],
     }),
     new HtmlWebpackPlugin({
       inject: 'head',
       template: 'index.html',
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
-    }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
   ],
-  optimization: {
-    minimize: false,
-  },
+  optimization: { minimize: false },
   output: {
     filename: '[name].[contenthash].js',
-    path: path.resolve(__dirname, 'dist')
-  }
-};
+    path: path.resolve(__dirname, 'dist'),
+  },
+}

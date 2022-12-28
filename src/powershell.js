@@ -1,24 +1,23 @@
-window.sjcl.beware["CBC mode is dangerous because it doesn't protect message integrity."]();
+window.sjcl.beware['CBC mode is dangerous because it doesn\'t protect message integrity.']()
 
-const iterations = 10 * 1000;
+const iterations = 10 * 1000
 
-const encryptToCode = (password, plaintext) => getDecryptionCode(encrypt(password, plaintext));
+const encryptToCode = (password, plaintext) => getDecryptionCode(encrypt(password, plaintext))
 export { encryptToCode }
 
 const encrypt = (password, plaintext) => {
-  const iv = sjcl.random.randomWords(128/32);
-  const salt = sjcl.random.randomWords(256/32);
-  const key = sjcl.misc.pbkdf2(password, salt, iterations, 256);
+  const iv = sjcl.random.randomWords(128/32)
+  const salt = sjcl.random.randomWords(256/32)
+  const key = sjcl.misc.pbkdf2(password, salt, iterations, 256)
 
-  const aes = new sjcl.cipher.aes(key);
-  const encrypted = sjcl.mode.cbc.encrypt(aes, sjcl.codec.utf8String.toBits(plaintext), iv);
-  const cipherText = sjcl.codec.base64.fromBits(
-    sjcl.bitArray.concat(sjcl.bitArray.concat(salt, iv), encrypted));
+  const aes = new sjcl.cipher.aes(key)
+  const encrypted = sjcl.mode.cbc.encrypt(aes, sjcl.codec.utf8String.toBits(plaintext), iv)
+  const cipherText = sjcl.codec.base64.fromBits(sjcl.bitArray.concat(sjcl.bitArray.concat(salt, iv), encrypted))
 
-  return cipherText;
-};
+  return cipherText
+}
 
-const getDecryptionCode = (cipherText) => `function Decrypt($Password, $CipherText) {
+const getDecryptionCode = cipherText => `function Decrypt($Password, $CipherText) {
   $encrypted = [Convert]::FromBase64String($CipherText)
 
   $pbkdf = New-Object Security.Cryptography.Rfc2898DeriveBytes @(
@@ -37,12 +36,12 @@ const getDecryptionCode = (cipherText) => `function Decrypt($Password, $CipherTe
 Decrypt (Read-Host "Password") @'
 ${splitByChunks(cipherText).join('\n')}
 '@
-`;
+`
 
 const splitByChunks = (str, n=64) => {
-  const result = [];
+  const result = []
   for (let i = 0; i < str.length; i += n) {
-    result.push(str.substr(i, n));
+    result.push(str.substr(i, n))
   }
-  return result;
-};
+  return result
+}
