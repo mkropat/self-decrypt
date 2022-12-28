@@ -10,7 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "marx-css": "^3.0.8",
+    "marx-css": "^4.0.1",
     "sjcl": "^1.0.8"
   },
   "devDependencies": {
