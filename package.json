@@ -14,8 +14,10 @@
     "sjcl": "^1.0.8"
   },
   "devDependencies": {
+    "@mkropat/eslint-config": "^0.1.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.30.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
     "webpack": "^5.75.0",
